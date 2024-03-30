@@ -6,26 +6,22 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-
     for (let i2 = 0; i2 < n; i2++) {
-        const indexInsert = 0;
+        let indexInsert = 0;
         for (let i1 = 0; i1 < m; i1++) {
-
+            if (nums2[i2] <= nums1[i1])
+                indexInsert = i1
         }
-        insertElement(nums1, indexInsert, nums2[i2])
+        insertElement(nums1, m + i2, indexInsert, nums2[i2])
 
     }
 
 };
 
-var insertElement = function (nums1, index, value) {
-    for (let i1 = 0; i1 < m; i1++) {
-
-        for (let k = m + i2; k > i1; k--) {
-            nums1[k] == nums1[k - 1]
-        }
-        nums1[i1] = nums2[i2]
-        break;
+var insertElement = function (nums1, length, index, value) {
+    for (let i = length; i >= 0; i--) {
+        nums1[i] = nums1[i - 1]
     }
 
 }
+
